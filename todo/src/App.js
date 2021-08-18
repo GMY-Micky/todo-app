@@ -10,19 +10,25 @@ function App() {
   const [id,setId]=useState(1)
 
 const addTodo=(todo)=>{
-  setId(()=>id+1)
-  
   const realTodo = {id , ...todo}
   setTodos([...todos,realTodo])
+  setId(()=>id+1)
 }
 
 const delTodo=(id)=>{
-  const newTodo = todos.filter((todo)=>Todo.id !== parseInt(id));
+  const newTodo = todos.filter((todo)=>todo.id !== parseInt(id));
   setTodos(newTodo)
 }
 
-const editTodo = (id) => {
-
+const editTodo = (newTodo) => {
+  setTodos(
+    todos.map((todo)=>{
+    if(parseInt(newTodo.id)===todo.id)
+    {
+      return {...todo,title:newTodo.title,body:newTodo.body}
+    }
+    return todo;
+  }))
 }
 
 console.log(todos)

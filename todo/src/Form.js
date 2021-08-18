@@ -1,19 +1,31 @@
 import {useState} from 'react'
+import InputFields from './InputFields';
 import {Link} from 'react-router-dom'
 
-const Form = ({addTodo,setControl}) => {
+const Form = (props) => {
     const [title,setTitle]=useState('');
     const [body,setBody]=useState('');
     const [alert,setAlert]=useState(false);
 
     const submitHandle=(e)=>{
         e.preventDefault();
-         if(title&&body)
-         {
-            setControl(false) 
-            addTodo({title,body})
+
+        if(props.editForm&&title&&body)
+        {
+            props.setEditForm(false)
+            props.editTodo({id:props.id,title,body})
+            props.setTitle(title)
+            props.setBody(body)
             setTitle('')
             setBody('')
+        }
+
+         if(!props.editForm&&title&&body)
+         {
+            props.addTodo({title,body})
+            setTitle('')
+            setBody('')
+            props.setControl(false) 
          }
          else{
             setAlert(true)
@@ -22,23 +34,11 @@ const Form = ({addTodo,setControl}) => {
 
     return (
         <>
-        <div className='form'>
-            {alert&&<div className='alrt'>
+         {alert&&<div className='alrt'>
                 <h3 style={{color:'white'}}>Please fill the form</h3>
                 </div>}
-            <form onSubmit={submitHandle}> 
-                <div className='title'>
-                    <lable>Title</lable>
-                    <input type ='text' value={title} onChange={(e)=>setTitle(e.target.value)}></input>
-                </div>
-                <div className='body'>
-                    <lable>Body</lable>
-                    <input type ='text' value={body} onChange={(e)=>setBody(e.target.value)}></input>
-                </div>
-                <input type='submit'></input>
-            </form>     
-        </div>
-        <Link to="/" className='back-btn' onClick={()=>setControl(false)}>Back to Todos</Link>
+        <InputFields submitHandle={submitHandle} title={title} setTitle={setTitle} body={body} setBody={setBody}/>
+        {!props.editForm && <Link to="/" className='back-btn' onClick={()=>props.setControl(false)}>Back to Todos</Link>}
         </>
     )
 }

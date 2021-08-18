@@ -1,26 +1,35 @@
 import {Link ,useParams} from 'react-router-dom'
-import { useState, useEffect} from 'react';
+import { useState, useEffect, Fragment} from 'react';
+import Form from './Form'
 
 const Todo = ({todos,delTodo,editTodo}) => {
     const {id}=useParams();
-    const [title,setTitle]=useState();
-    const [body,setBody]=useState();
+    const [title,setTitle]=useState('');
+    const [body,setBody]=useState('');
+
+    const [editForm,setEditForm] =useState(false)
 
     useEffect(() => {
-        const data = todos.find((todo)=>todo.id=== parseInt(id));
-        setTitle(data.title);
-        setBody(data.body);
+        const newTodo = todos.find((todo)=> {return todo.id=== parseInt(id)});
+        setTitle(newTodo.title);
+        setBody(newTodo.body);
     }, [])
 
     return (
-        <> 
+        <>   
+        {editForm&&<Form id={id} 
+        editForm={editForm} 
+        editTodo={editTodo} 
+        setEditForm={setEditForm}
+        setTitle={setTitle}
+        setBody={setBody}/>}
             <div className='todo-data'>
                 <h1 style={{color:'white',fontSize:'50px',padding:'20px'}}>{title}</h1>
                 <p style={{color:'yellow',fontSize:'25px'}}>{body}</p>
-
-                <button type='button' onClick={()=>delTodo(id)}>Delete</button>
-                <button type='button' onClick={()=>editTodo(id)}>Edit</button>
-            </div>
+                 
+                <Link to='/' onClick={()=>delTodo(id)}>Delete</Link>
+                <button type='button' onClick={()=>setEditForm(true)}>Edit</button>
+               </div> 
             <Link to="/" className='back-btn'>Back to Todos</Link>
         </>
     )
