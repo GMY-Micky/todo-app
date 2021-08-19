@@ -3,7 +3,7 @@
 const InputFields = (props) => {
     return (
         <>
-            <form className='my-3' onSubmit={props.submitHandle}> 
+            <form onSubmit={props.submitHandle} > 
                 <div className='form-group'>
                     <input type ='text' className='my-2 p-1' 
                     style={{borderRadius:'5px'}} 
@@ -19,9 +19,9 @@ const InputFields = (props) => {
                 <div className='form-group'>
                     <input type='file' 
                     className='text-white border bg-dark mt-3' 
-                    name='file' onChange={(e)=>props.onChange}/>
+                    name='file' onChange={(e)=>props.onChange(e)}/>
                 </div>
-                <input type='submit' className=' btn text-black my-3 bg-light border text-decoration-none'></input>
+                <button type='submit' className=' btn btn-info text-white my-3 border'>submit</button>
             </form>     
         </>
     )
