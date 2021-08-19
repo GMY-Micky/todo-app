@@ -4,6 +4,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Todos from './Todos';
 import Error from './Error';
 import Todo from './Todo'
+import AllTodos from './AllTodos';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [todos,setTodos] = useState([])
@@ -31,15 +34,22 @@ const editTodo = (newTodo) => {
   }))
 }
 
-console.log(todos)
+const delAll = () =>{
+  setTodos([])
+}
+
 
   return (
-    <>
-    <h1 className="app-name">Todo App</h1> 
+    
+    <div className='container-sm border bg-dark  my-5'>
+    <h1 className="display-1 text-center my-4 text-white">Todo </h1> 
     <Router>
       <Switch>
       <Route exact path="/">
-        <Todos todos={todos} addTodo={addTodo}/>
+        <Todos todos={todos} addTodo={addTodo} delAll={delAll}/>
+      </Route>
+      <Route exact path='/todos'>
+        <AllTodos todos={todos}/>
       </Route>
       <Route path="/todos/:id" children={<Todo todos={todos} delTodo={delTodo} editTodo={editTodo}/>}></Route>
       <Route path="*">
@@ -47,9 +57,8 @@ console.log(todos)
       </Route>
       </Switch>
     </Router>
-
-     
-   </>
+    </div>
+    
   );
 }
 

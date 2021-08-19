@@ -23,14 +23,15 @@ const Todo = ({todos,delTodo,editTodo}) => {
         setEditForm={setEditForm}
         setTitle={setTitle}
         setBody={setBody}/>}
-            <div className='todo-data'>
-                <h1 style={{color:'white',fontSize:'50px',padding:'20px'}}>{title}</h1>
-                <p style={{color:'yellow',fontSize:'25px'}}>{body}</p>
-                 
-                <Link to='/' onClick={()=>delTodo(id)}>Delete</Link>
-                <button type='button' onClick={()=>setEditForm(true)}>Edit</button>
-               </div> 
-            <Link to="/" className='back-btn'>Back to Todos</Link>
+            <div className='container my-4 border bg-white text-black'>
+                <h1 className='text-break text-center'>{title}</h1>
+                <p className='text-break text-center'>{body}</p>
+                </div>  
+                <div className='btn-group mx-3 my-3 text-center'>
+                <Link to='/' className='btn text-black bg-light border text-decoration-none' onClick={()=>delTodo(id)}>Delete</Link>
+                <button type='button' className='btn text-black bg-light border' onClick={()=>setEditForm(true)}>Edit</button>
+                    <Link to="/" className='btn text-white bg-dark border'>Back to Todos</Link>
+                </div>
         </>
     )
 }

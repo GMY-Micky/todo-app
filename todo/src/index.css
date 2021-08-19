@@ -1,6 +1,22 @@
-*{
+/* *{
   margin: 0px;
   padding: 0px; 
+}
+
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  border: solid 3px yellow;
+  width: 500px;
+  margin-top: 100px;
+}
+
+.font-link {
+  font-family: 'Roboto Slab', serif;
 }
 
 body{
@@ -10,7 +26,7 @@ body{
 
 .app-name{
   color: rgb(255, 255, 0);
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 70px;
   padding: 20px;
 }
@@ -20,41 +36,52 @@ body{
   flex-direction: column;
   margin-top: 30px;
   align-items: center;
-
-}
-
-.todo-data{
   margin-bottom: 50px;
 }
 
-.todo{
-  background-color: white;
-  font-size: 30px;
-  border-radius: 1rem;
-  width: 550px;
-  height: 50px;
-  margin-top: 10px;
-  padding-top: 17px;
-  text-align: left;
+.error,.todo-data{
+  margin-bottom: 50px;
 }
 
-.view-btn{
-  text-decoration: none; 
-  color:rgb(66, 62, 136);
-  font-size: 20px;
-  float: right;
-  margin-right: 20px;
-} 
 
- .back-btn,.add-btn{
+.view-btn{
+  background-color: white;
+  font-size: 30px;
+  text-decoration: none;
+  border-radius: 1rem;
+  width: 450px;
+  height: 50px;
+  margin: 10px;;
+}
+
+.view-btn:hover{
+  color: white;
+  background-color: rgb(14, 12, 49);
+}
+
+.sub-btn,.del-btn,.edit-btn,.del-all-btn,.b-btn,.add-btn{
   text-decoration: none; 
   background-color: white;
   color: rgb(14, 12, 49);
   padding: 10px 20px;
+  border: none;
   border-radius: 1rem;
   font-size: 20px;
+  margin: 5px;
+  width: 150px;
  }
 
+.edit-btn{
+  width: 95px;
+ }
+
+.back-btn{
+  margin-bottom: 50px;
+ }
+
+.manip-btn{
+  margin:20px;
+}
 
 .form{
   color: yellow;
@@ -67,4 +94,10 @@ input{
   color: rgb(14, 12, 49);
   margin: 10px;
   padding: 10px;
+} */
+
+@media screen and (min-width:786px){
+  .container-sm{
+    width: 500px;
+  }
 }
