@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Todos from './Todos';
@@ -18,6 +18,9 @@ const addTodo=(todo)=>{
   const realTodo = {id , ...todo}
   setTodos([...todos,realTodo])
   setId(()=>id+1)
+
+  localStorage.setItem('todos', JSON.stringify(todos))
+  
 }
 
 const delTodo=(id)=>{
@@ -46,6 +49,14 @@ const delAll = () =>{
   setCounter(0)
   setId(1)
 }
+
+useEffect(() => {
+  if(localStorage.getItem('todos')) {
+    setTimeout(() => {
+      setTodos(JSON.parse(localStorage.getItem('todos')))
+    }, 1000)
+  }
+}, [])
 
 
   return (
