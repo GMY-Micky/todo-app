@@ -18,8 +18,6 @@ const addTodo=(todo)=>{
   const realTodo = {id , ...todo}
   setTodos([...todos,realTodo])
   setId(()=>id+1)
-
-  localStorage.setItem('todos', JSON.stringify(todos))
   
 }
 
@@ -51,12 +49,13 @@ const delAll = () =>{
 }
 
 useEffect(() => {
+  localStorage.setItem('todos', JSON.stringify(todos))
   if(localStorage.getItem('todos')) {
     setTimeout(() => {
       setTodos(JSON.parse(localStorage.getItem('todos')))
     }, 1000)
   }
-}, [])
+}, [todos])
 
 
   return (
