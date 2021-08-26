@@ -18,10 +18,10 @@ const InputFields = (props) => {
                 </div>
                 <div className='form-group'>
                     <input type='file' 
-                    className='text-white border bg-dark mt-3' 
+                    className='btn text-dark border bg-light mt-3' 
                     name='file' onChange={(e)=>props.onChange(e)}/>
                 </div>
-                <button type='submit' className=' btn btn-info text-white my-3 border'>submit</button>
+                <button type='submit' className=' btn btn-success text-white my-3 border'>submit</button>
             </form>     
         </>
     )

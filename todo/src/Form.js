@@ -48,7 +48,11 @@ const Form = (props) => {
          {alert&&<div className='alert'>
                 <h3 className='alert-warning'>Please fill the form</h3>
                 </div>}
-        <InputFields submitHandle={submitHandle} title={title} setTitle={setTitle} body={body} setBody={setBody} onChange={onChange}/>
+        <InputFields submitHandle={submitHandle} 
+        title={title} setTitle={setTitle} 
+        body={body} setBody={setBody} 
+        onChange={onChange}
+        />
 
         {!props.editForm && <Link to="/" className=' btn btn-success text-white my-3 border text-decoration-none' onClick={()=>props.setControl(false)}>Back to Todos</Link>}
         </div>

@@ -6,7 +6,8 @@ const AllTodos = ({todos}) => {
         <div>
            {todos.map((todo)=>{
                return(
-                <div className='container border'>
+                <div key={todo.id}
+                  className='container border'>
                     <table className='table table-bordered mt-3'>
                         <tbody>
                             <tr className='bg-info text-white'>
