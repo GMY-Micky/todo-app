@@ -60,7 +60,7 @@ useEffect(() => {
 
   return (
     
-    <div className='container-sm border bg-light my-5'>
+    <div className='main-container container-sm border my-5 '>
     <h1 className="display-1 text-center mt-3 text-black"><strong>ToDo App</strong></h1> 
     <Router>
       <Switch>

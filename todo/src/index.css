@@ -3,101 +3,26 @@
   font-family: 'Arvo', serif;
 }
 
-/* *{
-  margin: 0px;
-  padding: 0px; 
+.main-container{
+  background-color: rgb(240, 240, 240);
 }
 
-.app{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container{
-  border: solid 3px yellow;
-  width: 500px;
-  margin-top: 100px;
-}
-
-.font-link {
-  font-family: 'Roboto Slab', serif;
-}
-
-body{
-  background-color: rgb(14, 12, 49);
-  text-align: center;
-}
-
-.app-name{
-  color: rgb(255, 255, 0);
-  margin-top: 50px;
-  font-size: 70px;
-  padding: 20px;
-}
-
-.todos{
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.error,.todo-data{
-  margin-bottom: 50px;
+.img-up{
+  width: 400px;
 }
 
 
-.view-btn{
-  background-color: white;
-  font-size: 30px;
-  text-decoration: none;
-  border-radius: 1rem;
-  width: 450px;
-  height: 50px;
-  margin: 10px;;
+@media screen and (max-width:700px) {
+  .main-container{
+    width:auto;
+  }
+  .img-up{
+    width: 300px;
+  }
+  .cont-bar{
+    width: 80%;
+  }
+  .del-bar{
+    width: 20%;
+  }
 }
-
-.view-btn:hover{
-  color: white;
-  background-color: rgb(14, 12, 49);
-}
-
-.sub-btn,.del-btn,.edit-btn,.del-all-btn,.b-btn,.add-btn{
-  text-decoration: none; 
-  background-color: white;
-  color: rgb(14, 12, 49);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 1rem;
-  font-size: 20px;
-  margin: 5px;
-  width: 150px;
- }
-
-.edit-btn{
-  width: 95px;
- }
-
-.back-btn{
-  margin-bottom: 50px;
- }
-
-.manip-btn{
-  margin:20px;
-}
-
-.form{
-  color: yellow;
-  font-size: 25px;
-  margin-bottom: 40px;
-}
-
-input{
-  background-color: white;
-  color: rgb(14, 12, 49);
-  margin: 10px;
-  padding: 10px;
-} */
-

@@ -10,12 +10,11 @@ const Todos = ({todos,addTodo,delAll,counter,delTodo}) => {
      
       <div className='container'>
           
-        <div style={{width:'350px'}} 
-        className='container d-flex justify-content-center btn-group mb-2 mt-4'
+        <div className='container d-flex flex-wrap justify-content-center btn btn-group mb-2 mt-4'
         >
 
-          {!control && <button type='button' 
-          className="btn btn-success text-white border" 
+          {!control && <button type='button'
+          className="btn btn-success border" 
           onClick={()=>setControl(!control)}>
             Add ToDo
           </button>}
@@ -26,7 +25,7 @@ const Todos = ({todos,addTodo,delAll,counter,delTodo}) => {
           </Link>}
 
           {!control && <button type='button' 
-          className="btn btn-danger text-wite border"
+          className="btn btn-danger border"
           onClick={delAll}>
             Delete All
           </button>}
@@ -45,11 +44,11 @@ const Todos = ({todos,addTodo,delAll,counter,delTodo}) => {
                   return(  
                     <div  key={todo.id} className='btn-group row'>
                       <Link to={`/todos/${todo.id}`} 
-                        className='btn col-11 text-black my-2 bg-light border'> 
+                        className='btn col-10 text-black my-2 bg-light border'> 
                         <span className='text-break h3' style={{marginLeft:'10px'}}>{todo.title}</span>                 
                       </Link>
                       <Link to='/' 
-                        className='btn col-1 text-white text-left my-2 border text-decoration-none' 
+                        className='btn col-2 text-white text-left my-2 border text-decoration-none' 
                         onClick={()=>delTodo(todo.id)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash text-dark" viewBox="0 0 16 16">
                           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
